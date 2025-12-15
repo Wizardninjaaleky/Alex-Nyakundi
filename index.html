@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Nyakundi | Software Developer & Creative Professional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Alex Nyakundi</div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Background Slideshow -->
+        <div class="slideshow-container">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1920&h=1080&fit=crop');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&h=1080&fit=crop');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1920&h=1080&fit=crop');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=1920&h=1080&fit=crop');"></div>
+        </div>
+        
+        <!-- Dark overlay for text readability -->
+        <div class="hero-overlay"></div>
+        
+        <!-- Floating gradient orbs -->
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        
+        <!-- Slide indicators -->
+        <div class="slide-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Alex Nyakundi</h1>
+            <p class="hero-subtitle">Software Developer | Data Analyst | Photographer | Videographer | Video Editor</p>
+            <p class="hero-description">Transforming ideas into digital solutions and capturing moments through creative visual storytelling</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">View Services</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a versatile professional combining technical expertise with creative passion. As a software developer specializing in backend development and data analysis, I build robust applications and derive actionable insights from complex data.</p>
+                    <p>Beyond code, I'm a passionate photographer and videographer who captures compelling visual stories. I also bring expertise in video editing using industry-standard tools like DaVinci Resolve, Blender, CapCut, and After Effects.</p>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3><i class="fas fa-code"></i> Development</h3>
+                            <p>Backend Development, App Development, Data Analysis</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3><i class="fas fa-camera"></i> Photography</h3>
+                            <p>Portrait, Event, Product Photography</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3><i class="fas fa-video"></i> Videography</h3>
+                            <p>Corporate Videos, Events, Documentaries</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3><i class="fas fa-film"></i> Video Editing</h3>
+                            <p>DaVinci Resolve, Blender, CapCut, After Effects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">Professional solutions tailored to your needs</p>
+            <div class="services-grid">
+                <!-- Software Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>Custom backend solutions, API development, database design, and server-side application development.</p>
+                    <ul class="service-features">
+                        <li>RESTful API Development</li>
+                        <li>Database Design & Optimization</li>
+                        <li>Server Architecture</li>
+                        <li>Third-party Integrations</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openServiceModal('backend')">Request Service</button>
+                </div>
+
+                <!-- App Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Development</h3>
+                    <p>Full-stack application development for web and mobile platforms with modern technologies.</p>
+                    <ul class="service-features">
+                        <li>Web Applications</li>
+                        <li>Mobile Apps</li>
+                        <li>Progressive Web Apps</li>
+                        <li>Custom Software Solutions</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openServiceModal('app')">Request Service</button>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Analysis</h3>
+                    <p>Transform your data into actionable insights with comprehensive analysis and visualization.</p>
+                    <ul class="service-features">
+                        <li>Data Mining & Processing</li>
+                        <li>Statistical Analysis</li>
+                        <li>Data Visualization</li>
+                        <li>Business Intelligence Reports</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openServiceModal('analysis')">Request Service</button>
+                </div>
+
+                <!-- Photography -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photography</h3>
+                    <p>Professional photography services for events, portraits, products, and commercial projects.</p>
+                    <ul class="service-features">
+                        <li>Event Photography</li>
+                        <li>Portrait Sessions</li>
+                        <li>Product Photography</li>
+                        <li>Corporate Photography</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openServiceModal('photography')">Request Service</button>
+                </div>
+
+                <!-- Videography -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Videography</h3>
+                    <p>Capture your moments with professional videography for events, commercials, and documentaries.</p>
+                    <ul class="service-features">
+                        <li>Event Videography</li>
+                        <li>Corporate Videos</li>
+                        <li>Documentaries</li>
+                        <li>Promotional Videos</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openServiceModal('videography')">Request Service</button>
+                </div>
+
+                <!-- Video Editing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Video Editing & Training</h3>
+                    <p>Professional video editing and training sessions for DaVinci Resolve, Blender, CapCut, and After Effects.</p>
+                    <ul class="service-features">
+                        <li>Professional Video Editing</li>
+                        <li>Color Grading</li>
+                        <li>Motion Graphics</li>
+                        <li>Software Training Sessions</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openServiceModal('editing')">Request Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <p class="section-subtitle">Recent work and projects</p>
+            
+            <!-- Portfolio Filter -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+                <button class="filter-btn" data-filter="photography">Photography</button>
+                <button class="filter-btn" data-filter="videography">Videography</button>
+                <button class="filter-btn" data-filter="editing">Video Editing</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be populated by JavaScript -->
+                <div class="portfolio-item" data-category="development">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="300" fill="url(#grad1)"/>
+                            <circle cx="80" cy="80" r="40" fill="rgba(255,255,255,0.1)"/>
+                            <circle cx="320" cy="220" r="60" fill="rgba(255,255,255,0.1)"/>
+                            <text x="200" y="130" font-size="80" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-family="Arial">&lt;/&gt;</text>
+                            <text x="200" y="180" font-size="16" fill="rgba(255,255,255,0.9)" text-anchor="middle" font-family="Arial">Backend Development</text>
+                            <rect x="100" y="200" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+                            <rect x="100" y="220" width="150" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+                            <rect x="100" y="240" width="180" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with payment integration</p>
+                        <span class="portfolio-tag">Backend Development</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="photography">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="300" fill="url(#grad2)"/>
+                            <circle cx="100" cy="60" r="30" fill="rgba(255,255,255,0.15)"/>
+                            <circle cx="300" cy="240" r="50" fill="rgba(255,255,255,0.15)"/>
+                            <rect x="130" y="100" width="140" height="100" rx="10" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="3"/>
+                            <circle cx="200" cy="150" r="30" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="200" cy="150" r="20" fill="rgba(255,255,255,0.5)"/>
+                            <rect x="250" y="120" width="15" height="15" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="180" cy="100" r="8" fill="rgba(255,255,255,0.6)"/>
+                            <text x="200" y="240" font-size="14" fill="rgba(255,255,255,0.9)" text-anchor="middle" font-family="Arial">📸 Event Photography</text>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Corporate Event</h3>
+                        <p>Professional photography for annual conference</p>
+                        <span class="portfolio-tag">Event Photography</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="videography">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <defs>
+                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="300" fill="url(#grad3)"/>
+                            <circle cx="320" cy="60" r="35" fill="rgba(255,255,255,0.15)"/>
+                            <circle cx="80" cy="240" r="45" fill="rgba(255,255,255,0.15)"/>
+                            <rect x="100" y="80" width="200" height="140" rx="8" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="3"/>
+                            <polygon points="170,130 170,170 210,150" fill="rgba(255,255,255,0.8)"/>
+                            <rect x="110" y="230" width="180" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="130" cy="233" r="10" fill="rgba(255,255,255,0.6)"/>
+                            <text x="200" y="265" font-size="14" fill="rgba(255,255,255,0.9)" text-anchor="middle" font-family="Arial">🎬 Corporate Video</text>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Brand Documentary</h3>
+                        <p>Documentary-style brand storytelling video</p>
+                        <span class="portfolio-tag">Corporate Video</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="editing">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <defs>
+                                <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="300" fill="url(#grad4)"/>
+                            <circle cx="300" cy="80" r="40" fill="rgba(255,255,255,0.15)"/>
+                            <circle cx="100" cy="220" r="30" fill="rgba(255,255,255,0.15)"/>
+                            <rect x="80" y="60" width="240" height="140" rx="10" fill="rgba(0,0,0,0.3)"/>
+                            <rect x="90" y="210" width="220" height="50" rx="5" fill="rgba(255,255,255,0.3)"/>
+                            <rect x="100" y="220" width="60" height="8" rx="4" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="170" y="220" width="40" height="8" rx="4" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="220" y="220" width="70" height="8" rx="4" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="100" y="235" width="180" height="15" rx="3" fill="rgba(255,100,100,0.5)"/>
+                            <rect x="100" y="235" width="90" height="15" rx="3" fill="rgba(100,255,100,0.6)"/>
+                            <text x="200" y="125" font-size="50" fill="rgba(255,255,255,0.9)" text-anchor="middle" font-family="Arial">✂️</text>
+                            <text x="200" y="280" font-size="14" fill="rgba(255,255,255,0.9)" text-anchor="middle" font-family="Arial">DaVinci • After Effects</text>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Promotional Campaign</h3>
+                        <p>Edited promotional video with motion graphics</p>
+                        <span class="portfolio-tag">Video Editing</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="development">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <defs>
+                                <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="300" fill="url(#grad5)"/>
+                            <circle cx="100" cy="80" r="35" fill="rgba(255,255,255,0.2)"/>
+                            <circle cx="320" cy="220" r="40" fill="rgba(255,255,255,0.2)"/>
+                            <rect x="140" y="50" width="120" height="200" rx="15" fill="rgba(255,255,255,0.3)" stroke="rgba(100,100,100,0.4)" stroke-width="3"/>
+                            <rect x="150" y="70" width="100" height="160" rx="5" fill="rgba(100,150,255,0.3)"/>
+                            <circle cx="200" cy="235" r="8" fill="rgba(100,100,100,0.5)"/>
+                            <rect x="165" y="85" width="70" height="12" rx="6" fill="rgba(255,255,255,0.5)"/>
+                            <rect x="165" y="105" width="70" height="40" rx="8" fill="rgba(255,255,255,0.4)"/>
+                            <rect x="165" y="155" width="70" height="40" rx="8" fill="rgba(255,255,255,0.4)"/>
+                            <text x="200" y="280" font-size="14" fill="rgba(100,100,100,0.8)" text-anchor="middle" font-family="Arial">📱 Mobile App</text>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Mobile App</h3>
+                        <p>Cross-platform mobile application</p>
+                        <span class="portfolio-tag">App Development</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="photography">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <defs>
+                                <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ffecd2;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#fcb69f;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="300" fill="url(#grad6)"/>
+                            <circle cx="80" cy="60" r="30" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="320" cy="240" r="40" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="200" cy="120" r="50" fill="rgba(255,200,150,0.5)"/>
+                            <circle cx="180" cy="110" r="8" fill="rgba(100,100,100,0.6)"/>
+                            <circle cx="220" cy="110" r="8" fill="rgba(100,100,100,0.6)"/>
+                            <ellipse cx="200" cy="135" rx="15" ry="10" fill="rgba(255,150,150,0.5)"/>
+                            <path d="M 180 145 Q 200 155 220 145" stroke="rgba(100,100,100,0.5)" stroke-width="3" fill="none"/>
+                            <rect x="120" y="180" width="160" height="80" rx="10" fill="rgba(100,150,200,0.3)"/>
+                            <text x="200" y="275" font-size="14" fill="rgba(100,100,100,0.8)" text-anchor="middle" font-family="Arial">👤 Portrait Photography</text>
+                        </svg>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Portrait Session</h3>
+                        <p>Professional portrait photography</p>
+                        <span class="portfolio-tag">Portrait</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss your project</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:alexnyakundi291@gmail.com" style="color: inherit; text-decoration: none;">alexnyakundi291@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:+254791847710" style="color: inherit; text-decoration: none;">+254 791 847 710</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/alexnyakundi" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Wizardninjaaleky" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/alexnyakundi" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@alexnyakundi" target="_blank" rel="noopener noreferrer" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">Select a Service</option>
+                            <option value="backend">Backend Development</option>
+                            <option value="app">App Development</option>
+                            <option value="analysis">Data Analysis</option>
+                            <option value="photography">Photography</option>
+                            <option value="videography">Videography</option>
+                            <option value="editing">Video Editing/Training</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Request Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeServiceModal()">&times;</span>
+            <h2 id="modalTitle">Request Service</h2>
+            <form id="serviceRequestForm">
+                <input type="hidden" id="serviceType" name="serviceType">
+                <div class="form-group">
+                    <input type="text" name="clientName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="clientEmail" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="clientPhone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="projectTimeline" placeholder="Project Timeline (e.g., 2 weeks)">
+                </div>
+                <div class="form-group">
+                    <textarea name="projectDetails" rows="5" placeholder="Project Details..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Alex Nyakundi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

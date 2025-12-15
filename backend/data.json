@@ -1,0 +1,146 @@
+{
+  "profile": {
+    "name": "Alex Nyakundi",
+    "title": "Software Developer | Data Analyst | Photographer | Videographer | Video Editor",
+    "description": "Transforming ideas into digital solutions and capturing moments through creative visual storytelling",
+    "email": "alexnyakundi291@gmail.com",
+    "phone": "+254 791 847 710",
+    "location": "Nairobi, Kenya",
+    "socialLinks": {
+      "linkedin": "#",
+      "github": "#",
+      "instagram": "#",
+      "youtube": "#"
+    }
+  },
+  "about": {
+    "bio": [
+      "I'm a versatile professional combining technical expertise with creative passion. As a software developer specializing in backend development and data analysis, I build robust applications and derive actionable insights from complex data.",
+      "Beyond code, I'm a passionate photographer and videographer who captures compelling visual stories. I also bring expertise in video editing using industry-standard tools like DaVinci Resolve, Blender, CapCut, and After Effects."
+    ]
+  },
+  "services": [
+    {
+      "id": "backend",
+      "icon": "fas fa-laptop-code",
+      "title": "Backend Development",
+      "description": "Custom backend solutions, API development, database design, and server-side application development.",
+      "features": [
+        "RESTful API Development",
+        "Database Design & Optimization",
+        "Server Architecture",
+        "Third-party Integrations"
+      ]
+    },
+    {
+      "id": "app",
+      "icon": "fas fa-mobile-alt",
+      "title": "App Development",
+      "description": "Full-stack application development for web and mobile platforms with modern technologies.",
+      "features": [
+        "Web Applications",
+        "Mobile Apps",
+        "Progressive Web Apps",
+        "Custom Software Solutions"
+      ]
+    },
+    {
+      "id": "analysis",
+      "icon": "fas fa-chart-line",
+      "title": "Data Analysis",
+      "description": "Transform your data into actionable insights with comprehensive analysis and visualization.",
+      "features": [
+        "Data Mining & Processing",
+        "Statistical Analysis",
+        "Data Visualization",
+        "Business Intelligence Reports"
+      ]
+    },
+    {
+      "id": "photography",
+      "icon": "fas fa-camera",
+      "title": "Photography",
+      "description": "Professional photography services for events, portraits, products, and commercial projects.",
+      "features": [
+        "Event Photography",
+        "Portrait Sessions",
+        "Product Photography",
+        "Corporate Photography"
+      ]
+    },
+    {
+      "id": "videography",
+      "icon": "fas fa-video",
+      "title": "Videography",
+      "description": "Capture your moments with professional videography for events, commercials, and documentaries.",
+      "features": [
+        "Event Videography",
+        "Corporate Videos",
+        "Documentaries",
+        "Promotional Videos"
+      ]
+    },
+    {
+      "id": "editing",
+      "icon": "fas fa-film",
+      "title": "Video Editing & Training",
+      "description": "Professional video editing and training sessions for DaVinci Resolve, Blender, CapCut, and After Effects.",
+      "features": [
+        "Professional Video Editing",
+        "Color Grading",
+        "Motion Graphics",
+        "Software Training Sessions"
+      ]
+    }
+  ],
+  "portfolio": [
+    {
+      "id": 1,
+      "title": "E-Commerce Platform",
+      "description": "Full-stack e-commerce solution with payment integration",
+      "category": "development",
+      "tag": "Backend Development",
+      "image": "/uploads/placeholder-dev.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Corporate Event",
+      "description": "Professional photography for annual conference",
+      "category": "photography",
+      "tag": "Event Photography",
+      "image": "/uploads/placeholder-photo.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Brand Documentary",
+      "description": "Documentary-style brand storytelling video",
+      "category": "videography",
+      "tag": "Corporate Video",
+      "image": "/uploads/placeholder-video.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Promotional Campaign",
+      "description": "Edited promotional video with motion graphics",
+      "category": "editing",
+      "tag": "Video Editing",
+      "image": "/uploads/placeholder-edit.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Mobile App",
+      "description": "Cross-platform mobile application",
+      "category": "development",
+      "tag": "App Development",
+      "image": "/uploads/placeholder-app.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Portrait Session",
+      "description": "Professional portrait photography",
+      "category": "photography",
+      "tag": "Portrait",
+      "image": "/uploads/placeholder-portrait.jpg"
+    }
+  ]
+}
