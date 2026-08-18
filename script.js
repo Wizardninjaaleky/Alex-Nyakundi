@@ -265,27 +265,42 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Intersection Observer for Animation on Scroll
+// Intersection Observer for Advanced Animation on Scroll
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -80px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const scrollRevealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            // Add active class to trigger CSS animations
+            entry.target.classList.add('active');
+            
+            // Add slight stagger based on element index
+            const parent = entry.target.parentElement;
+            if (parent) {
+                const index = Array.from(parent.children).indexOf(entry.target);
+                entry.target.style.animationDelay = `${index * 0.1}s`;
+            }
+            
+            // Optional: Stop observing once animated
+            scrollRevealObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.querySelectorAll('.service-card, .portfolio-item, .skill-category').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+// Observe elements for scroll reveal animation
+const elementsToObserve = document.querySelectorAll(
+    '.service-card, .portfolio-item, .skill-category, .section-title, .portfolio-tag'
+);
+
+elementsToObserve.forEach(el => {
+    // Add reveal class if not already present
+    if (!el.classList.contains('reveal') && !el.classList.contains('reveal-left') && !el.classList.contains('reveal-right') && !el.classList.contains('reveal-scale')) {
+        el.classList.add('reveal');
+    }
+    scrollRevealObserver.observe(el);
 });
 
 // Form Validation Enhancement
@@ -328,7 +343,7 @@ function updatePortfolioGrid(portfolioData) {
     
     portfolioData.forEach(item => {
         const portfolioItem = document.createElement('div');
-        portfolioItem.className = 'portfolio-item';
+        portfolioItem.className = 'portfolio-item reveal';
         portfolioItem.setAttribute('data-category', item.category);
         
         portfolioItem.innerHTML = `
@@ -345,13 +360,10 @@ function updatePortfolioGrid(portfolioData) {
         portfolioGrid.appendChild(portfolioItem);
     });
     
-    // Reattach observer
+    // Reattach observer to new items
     document.querySelectorAll('.portfolio-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        if (typeof observer !== 'undefined') {
-            observer.observe(el);
+        if (typeof scrollRevealObserver !== 'undefined') {
+            scrollRevealObserver.observe(el);
         }
     });
 }
@@ -468,7 +480,7 @@ class ParticleSystem {
     }
 }
 
-// Custom Cursor
+// Custom Cursor - Enhanced with Smooth Motion
 function initCustomCursor() {
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
@@ -477,18 +489,23 @@ function initCustomCursor() {
     
     let mouseX = 0, mouseY = 0;
     let outlineX = 0, outlineY = 0;
+    let isDotVisible = true;
     
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         
-        cursorDot.style.left = mouseX + 'px';
-        cursorDot.style.top = mouseY + 'px';
+        if (isDotVisible) {
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        }
     });
     
     function animateOutline() {
-        outlineX += (mouseX - outlineX) * 0.15;
-        outlineY += (mouseY - outlineY) * 0.15;
+        // Use easing function for smoother follow
+        const easing = 0.18; // Slightly increased for more responsive feel
+        outlineX += (mouseX - outlineX) * easing;
+        outlineY += (mouseY - outlineY) * easing;
         
         cursorOutline.style.left = outlineX - 20 + 'px';
         cursorOutline.style.top = outlineY - 20 + 'px';
@@ -508,11 +525,26 @@ function initCustomCursor() {
         cursorOutline.classList.remove('click');
     });
     
-    // Hover effects on interactive elements
-    document.querySelectorAll('a, button, .btn, .service-card, .portfolio-item').forEach(el => {
+    // Hide cursor dot when leaving window
+    document.addEventListener('mouseleave', () => {
+        isDotVisible = false;
+        cursorDot.style.opacity = '0';
+        cursorOutline.style.opacity = '0';
+    });
+    
+    document.addEventListener('mouseenter', () => {
+        isDotVisible = true;
+        cursorDot.style.opacity = '1';
+        cursorOutline.style.opacity = '0.5';
+    });
+    
+    // Hover effects on interactive elements with smooth scaling
+    document.querySelectorAll('a, button, .btn, .service-card, .portfolio-item, .filter-btn, .nav-link').forEach(el => {
         el.addEventListener('mouseenter', () => {
-            cursorDot.style.transform = 'scale(2)';
-            cursorOutline.style.transform = 'scale(1.5)';
+            cursorDot.style.transform = 'scale(1.8)';
+            cursorDot.style.transition = 'transform 0.2s ease-out';
+            cursorOutline.style.transform = 'scale(1.4)';
+            cursorOutline.style.transition = 'transform 0.2s ease-out';
         });
         el.addEventListener('mouseleave', () => {
             cursorDot.style.transform = 'scale(1)';
@@ -639,6 +671,88 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.skill-category').forEach((skill, index) => {
         skill.classList.add('reveal');
         skill.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // Enhanced Button Interactions - Ripple Effect
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.className = 'ripple';
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s ease-out';
+            ripple.style.pointerEvents = 'none';
+            
+            // Add animation
+            const style = document.createElement('style');
+            if (!document.querySelector('style[data-ripple]')) {
+                style.setAttribute('data-ripple', 'true');
+                style.textContent = `
+                    @keyframes ripple {
+                        to {
+                            transform: scale(4);
+                            opacity: 0;
+                        }
+                    }
+                    .btn {
+                        position: relative;
+                        overflow: hidden;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        });
+    });
+    
+    // Section Active State on Scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').slice(1) === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    // Enhanced Form Field Animations
+    document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
+        input.addEventListener('focus', () => {
+            input.parentElement.style.transform = 'translateY(-2px)';
+        });
+        
+        input.addEventListener('blur', () => {
+            input.parentElement.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Smooth Page Load Animation
+    document.querySelectorAll('section').forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.animation = `slideUp 0.8s ease-out ${index * 0.1}s forwards`;
     });
     
     // Load data from API
